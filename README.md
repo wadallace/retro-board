@@ -1,5 +1,7 @@
 # Project 1: Retro Board
 
+### **Note: Initialized with Bun. To run this project, please use `bun dev` instead of `npm run dev`.**
+
 **Due July 29, 2024 End of Day**
 
 For your first project, you will be creating a retrospective board. A retrospective board is used within the Scrum workflow. Scrum is the most popular Agile style of software project management used to guide the software development life cycle. Scrum style management is based on four basic ceremonies for each sprint or software release: the 1.) Sprint Planning meeting, 2.) Daily Stand-up, 3.) Sprint Review, and 4.) Sprint Retrospective. As a part of the Sprint Retrospective, team members will use a retrospective board to reflect on what went well and what they need to improve on for next time.
