@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, createContext } from 'react'
 
 export const RetroBoardContext = createContext()
