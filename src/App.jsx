@@ -4,16 +4,16 @@ import RetroBoard from './components/RetroBoard'
 
 function App() {
   return (
-    <RetroBoardProvider>
-      <div id='root'>
-        <main className='content row'>
-          <h1>Retro Board</h1>
-          <div className='RetroApp row'>
+    <div id='root'>
+      <main className='content row'>
+        <h1>Retro Board</h1>
+        <div className='RetroApp row'>
+          <RetroBoardProvider>
             <RetroBoard />
-          </div>
-        </main>
-      </div>
-    </RetroBoardProvider>
+          </RetroBoardProvider>
+        </div>
+      </main>
+    </div>
   )
 }
 
