@@ -1,207 +1,57 @@
+import RetroCard from './RetroCard.jsx'
+import { useContext } from 'react'
+import { RetroBoardContext } from '../contexts/RetroBoardContext'
+
 const RetroBoard = () => {
+  const columns = [
+    { id: 1, title: 'Went Well', cards: [] },
+    { id: 2, title: 'To Improve', cards: [] },
+    { id: 3, title: 'Action Items', cards: [] },
+  ]
+  const [
+    addCard,
+    updateCardText,
+    addLike,
+    addDislike,
+    removeCard,
+    moveLeft,
+    moveRight,
+    cards,
+  ] = useContext(RetroBoardContext)
+
   return (
     <>
-      <div id='root'>
-        <main className='content row'>
-          <h1>Retro Board</h1>
+      {columns.map((column) => {
+        const columnStyle = `RetroCategory RetroCategory-${column.id}`
+        const columnCards = cards.filter((card) => card.category === column.id)
 
-          <div className='RetroApp row'>
-            <div className='RetroCategory RetroCategory-1'>
-              <h2>Went Well</h2>
-
-              <button
-                type='button'
-                className='ButtonAdd button button-default'
-                aria-label='Add new card'
-                title='Add new card'
-              >
-                +
-              </button>
-
-              <div
-                className='RetroCard'
-                aria-label='Retro card'
-              >
-                <textarea
-                  className='textbox'
-                  placeholder='Enter text here'
-                  aria-label='Enter text here'
-                  rows='1'
-                  value='Here is an example card'
-                ></textarea>
-
-                <div className='button-group'>
-                  <button
-                    type='button'
-                    className='button button-left'
-                    title='Move left'
-                  >
-                    ⟨
-                  </button>
-                  <button
-                    type='button'
-                    className='button button-delete'
-                    title='Delete'
-                  >
-                    ⓧ
-                  </button>
-                  <div>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Like'
-                    >
-                      👍 5
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Dislike'
-                    >
-                      👎 0
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-right'
-                      title='Move right'
-                    >
-                      ⟩
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='RetroCategory RetroCategory-2'>
-              <h2>To Improve</h2>
-              <button
-                type='button'
-                className='ButtonAdd button button-default'
-                aria-label='Add to new card'
-                title='Add to new card'
-              >
-                +
-              </button>
-              <div
-                className='RetroCard'
-                aria-label='Retro card'
-              >
-                <textarea
-                  className='textbox'
-                  placeholder='Enter text here'
-                  aria-label='Enter text here'
-                  rows='1'
-                  value='Here is an example card'
-                ></textarea>
-
-                <div className='button-group'>
-                  <button
-                    type='button'
-                    className='button button-left'
-                    title='Move left'
-                  >
-                    ⟨
-                  </button>
-                  <button
-                    type='button'
-                    className='button button-delete'
-                    title='Delete'
-                  >
-                    ⓧ
-                  </button>
-                  <div>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Like'
-                    >
-                      👍 5
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Dislike'
-                    >
-                      👎 0
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-right'
-                      title='Move right'
-                    >
-                      ⟩
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='RetroCategory RetroCategory-3'>
-              <h2>Action Items</h2>
-              <button
-                type='button'
-                className='ButtonAdd button button-default'
-                aria-label='Add to new card'
-                title='Add to new card'
-              >
-                +
-              </button>
-              <div
-                className='RetroCard'
-                aria-label='Retro card'
-              >
-                <textarea
-                  className='textbox'
-                  placeholder='Enter text here'
-                  aria-label='Enter text here'
-                  rows='1'
-                  value='Here is an example card'
-                ></textarea>
-
-                <div className='button-group'>
-                  <button
-                    type='button'
-                    className='button button-left'
-                    title='Move left'
-                  >
-                    ⟨
-                  </button>
-                  <button
-                    type='button'
-                    className='button button-delete'
-                    title='Delete'
-                  >
-                    ⓧ
-                  </button>
-                  <div>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Like'
-                    >
-                      👍 5
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-left'
-                      title='Dislike'
-                    >
-                      👎 0
-                    </button>
-                    <button
-                      type='button'
-                      className='button button-right'
-                      title='Move right'
-                    >
-                      ⟩
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+        return (
+          <div
+            className={columnStyle}
+            id={`column-${column.id}`}
+            key={column.id}
+          >
+            <h2>{column.title}</h2>
+            <button
+              type='button'
+              className='ButtonAdd button button-default'
+              aria-label='Add new card'
+              title='Add new card'
+              onClick={() => addCard(column.id)}
+            >
+              +
+            </button>
+            {columnCards.map((retroCard) => (
+              <RetroCard
+                key={retroCard.retroId}
+                retroCard={retroCard}
+                cards={cards}
+                category={cards.category}
+              />
+            ))}
           </div>
-        </main>
-      </div>
+        )
+      })}
     </>
   )
 }
