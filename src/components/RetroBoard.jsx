@@ -8,16 +8,7 @@ const RetroBoard = () => {
     { id: 2, title: 'To Improve', cards: [] },
     { id: 3, title: 'Action Items', cards: [] },
   ]
-  const [
-    addCard,
-    updateCardText,
-    addLike,
-    addDislike,
-    removeCard,
-    moveLeft,
-    moveRight,
-    cards,
-  ] = useContext(RetroBoardContext)
+  const { addCard, cards } = useContext(RetroBoardContext)
 
   return (
     <>

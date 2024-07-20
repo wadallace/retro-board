@@ -74,7 +74,7 @@ export const RetroBoardProvider = ({ children }) => {
 
   return (
     <RetroBoardContext.Provider
-      value={[
+      value={{
         addCard,
         updateCardText,
         addLike,
@@ -83,7 +83,7 @@ export const RetroBoardProvider = ({ children }) => {
         moveLeft,
         moveRight,
         cards,
-      ]}
+      }}
     >
       {children}
     </RetroBoardContext.Provider>

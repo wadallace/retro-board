@@ -2,8 +2,7 @@ import { useContext } from 'react'
 import { RetroBoardContext } from '../contexts/RetroBoardContext'
 
 const RetroCard = ({ retroCard }) => {
-  const [
-    addCard,
+  const {
     updateCardText,
     addLike,
     addDislike,
@@ -11,7 +10,7 @@ const RetroCard = ({ retroCard }) => {
     moveLeft,
     moveRight,
     cards,
-  ] = useContext(RetroBoardContext)
+  } = useContext(RetroBoardContext)
 
   const card = cards.find((card) => card.retroId === retroCard.retroId) || {
     text: '',
