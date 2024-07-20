@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { RetroBoardContext } from '../contexts/RetroBoardContext'
-import PropTypes from 'prop-types'
 
 const RetroCard = ({ retroCard }) => {
   const [
@@ -86,9 +85,4 @@ const RetroCard = ({ retroCard }) => {
   )
 }
 
-RetroCard.propTypes = {
-  retroCard: PropTypes.shape({
-    retroId: PropTypes.number.isRequired,
-  }).isRequired,
-}
 export default RetroCard
