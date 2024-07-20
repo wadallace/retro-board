@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, createContext } from 'react'
 
 export const RetroBoardContext = createContext()
@@ -65,7 +66,7 @@ export const RetroBoardProvider = ({ children }) => {
         card.retroId === retroId
           ? {
               ...card,
-              category: card.category < 4 ? card.category + 1 : card.category,
+              category: card.category < 3 ? card.category + 1 : card.category,
             }
           : card
       )
