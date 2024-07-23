@@ -8,6 +8,8 @@
 
 For this project, I have created a retrospective board. A retrospective board is used within the Scrum workflow. Scrum is the most popular Agile style of software project management used to guide the software development life cycle. Scrum style management is based on four basic ceremonies for each sprint or software release: the 1.) Sprint Planning meeting, 2.) Daily Stand-up, 3.) Sprint Review, and 4.) Sprint Retrospective. As a part of the Sprint Retrospective, team members will use a retrospective board to reflect on what went well and what they need to improve on for next time.
 
+Here is a quick video overview of the functionality: ![RetroBoard Demo](RetroBoardDemo.mov) 
+
 This project is inspired by _GoRetro_. If you are not familiar with a retrospective board, please [visit the GoRetro website](https://www.goretro.ai/) and create a new board.
 
 ![Retro board example](retro-board-example.png)
